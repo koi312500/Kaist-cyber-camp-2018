@@ -40,7 +40,7 @@ int main() {
 		Sleep(3000);
 		return 0;
 	}
-	
+
 	while (!feof(fp)) {
 		fgets(str, 100, fp);
 		nitem++;
@@ -57,12 +57,12 @@ int main() {
 
 	fscanf(fp, "%d\n", &budget);
 	//////////////////
-	for (count = 0; count<nitem*2; count++) {
+	for (count = 0; count<nitem * 2; count++) {
 		if (count % 2 == 0) {
-			fgets(item[count/2].name, 100, fp);/////////////////////
+			fgets(item[count / 2].name, 100, fp);/////////////////////
 		}
 		else if (count % 2 == 1) {
-			fscanf(fp, "%d %d\n", &item[count/2].num, &item[count/2].price);
+			fscanf(fp, "%d %d\n", &item[count / 2].num, &item[count / 2].price);
 		}
 	}
 	fclose(fp);
@@ -115,6 +115,10 @@ int main() {
 			if (key == 80)
 				mode--;
 		}
+		if (key == 'p') {
+			fullbud = 99999999;
+			display(20, 20, "개발자 옵션", WHITE, BLACK);
+		}
 		if (key == ' ') {
 			if (mode % 2 == 0) {
 				display(0, 4, " 가계부          ", WHITE, BLACK);
@@ -126,14 +130,15 @@ int main() {
 					displayInt(30, z + 6, item[z].price, WHITE, BLACK);
 				}
 				while (1) {
+					
 					if (getch() == ' ') {
-						
-										system("cls");
-							display(50, 2, "장보기 프로그램", BLACK, WHITE);
-		display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
-		display(0, 4, "MAIN MENU     ", WHITE, BLACK);
-		display(0, 5, " 가계부", BLACK, WHITE);
-		display(0, 6, " 구매 리스트", WHITE, BLACK);
+
+						system("cls");
+						display(50, 2, "장보기 프로그램", BLACK, WHITE);
+						display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
+						display(0, 4, "MAIN MENU     ", WHITE, BLACK);
+						display(0, 5, " 가계부", BLACK, WHITE);
+						display(0, 6, " 구매 리스트", WHITE, BLACK);
 						break;
 					}
 				}
@@ -150,11 +155,11 @@ int main() {
 				while (1) {
 					if (getch() == ' ') {
 						system("cls");
-							display(50, 2, "장보기 프로그램", BLACK, WHITE);
-		display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
-		display(0, 4, "MAIN MENU     ", WHITE, BLACK);
-		display(0, 5, " 가계부", BLACK, WHITE);
-		display(0, 6, " 구매 리스트", WHITE, BLACK);
+						display(50, 2, "장보기 프로그램", BLACK, WHITE);
+						display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
+						display(0, 4, "MAIN MENU     ", WHITE, BLACK);
+						display(0, 5, " 가계부", BLACK, WHITE);
+						display(0, 6, " 구매 리스트", WHITE, BLACK);
 						break;
 					}
 				}
