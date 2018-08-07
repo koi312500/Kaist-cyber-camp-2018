@@ -4,21 +4,31 @@
 #include <ctype.h>
 #include <Windows.h>
 #include <string.h>
+int nitem = 0;
 
 void SetColor(int color, int bgcolor); // 글자 색과 배경 색을 변경한다. 
 void gotoxy(int x, int y); // 커서의 위치를 이동시킨다.
 void CursorView(char show); //커서숨기기 
+void display(int x, int y, char *text, int foreColor, int bgColor)
 
-typedef struct ITEM{  //품목을 나타내는 구조체 ITEM 정의
-       char item*;
+typedef struct ITEM{  //품목을 나타내는 구조체 ITEM 정의 (살 품목)
+       char name*;
        int price;
+       int num;
 } Item;
 
+typedef struct { // 가계부 전용 구조체
+        char *date; // 날짜
+        int  n; // 수입은 1 , 지출은 0
+        int money; // 돈 내놔!
+        char * title; //제목
+        char * content; // 내용
+}Book;
 
 int main(){
              int i;
                 for(i=0; i<5; i++) {
-                rec[i] = (struct RECORD *)malloc(sizeof(struct RECORD) * 8);
+                rec[i] = (struct Item *)malloc(sizeof(Item) * 8);
         } 
                   
          CursorView(0);
@@ -69,5 +79,11 @@ void CursorView(char show) //커서숨기기
         ConsoleCursor.dwSize = 1;
         SetConsoleCursorInfo(hConsole, &ConsoleCursor);
 }
+void display(int x, int y, char *text, int foreColor, int bgColor) {
+        GotoXY(x, y);
+        SetColor(foreColor, bgColor);
+        printf("%s", text);
+}
+
 
 /* -끝- */ 
