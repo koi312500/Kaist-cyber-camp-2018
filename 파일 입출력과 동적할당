@@ -7,18 +7,18 @@
 
 int nItem = 0;
 
-typedef struct ITEM{  //품목을 나타내는 구조체 ITEM 정의 (살 품목)
+typedef struct {  //품목을 나타내는 구조체 ITEM 정의 (살 품목)
        char* name;
        int price;
        int num;
-};
+}Item;
 
-void main(){
+int main(){
 	int num, i, j, a,b,c,d,budget,count;
 	char str[100];
-	struct ITEM *item[5];
+	Item *item[5];
 	for(i=0; i<5; i++) {
-		item[i] = (struct ITEM *)malloc(sizeof(struct ITEM) * 8);
+		item[i] = (Item*)malloc(sizeof(Item) * 8);
 	}
 
 	FILE *fp;
@@ -36,11 +36,9 @@ void main(){
 
 		fscanf(fp,"%d",&budget);
 		fclose(fp);
-		printf("%d\n",budget);
 		
 		for(count=0; count<nItem; count++) {
 		fgets(str, 100, fp);
-		fprintf(str, "%3s %d", item[i][j].name, item[i][j].num);
 	} 
 		
 }
