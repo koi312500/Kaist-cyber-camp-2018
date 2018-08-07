@@ -127,7 +127,13 @@ int main() {
 				}
 				while (1) {
 					if (getch() == ' ') {
-						display(0, 4, "MAIN MENU", WHITE, BLACK);
+						
+										system("cls");
+							display(50, 2, "장보기 프로그램", BLACK, WHITE);
+		display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
+		display(0, 4, "MAIN MENU     ", WHITE, BLACK);
+		display(0, 5, " 가계부", BLACK, WHITE);
+		display(0, 6, " 구매 리스트", WHITE, BLACK);
 						break;
 					}
 				}
@@ -143,7 +149,12 @@ int main() {
 				}
 				while (1) {
 					if (getch() == ' ') {
-						display(0, 4, "MAIN MENU      ", WHITE, BLACK);
+						system("cls");
+							display(50, 2, "장보기 프로그램", BLACK, WHITE);
+		display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
+		display(0, 4, "MAIN MENU     ", WHITE, BLACK);
+		display(0, 5, " 가계부", BLACK, WHITE);
+		display(0, 6, " 구매 리스트", WHITE, BLACK);
 						break;
 					}
 				}
