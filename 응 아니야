@@ -1,0 +1,25 @@
+{
+
+   char str;
+
+ 
+
+   while (1)
+
+   {
+
+      printf("문자을 입력하세요.");
+
+      scanf("%c", &str);
+
+ 
+
+      if (str == '+') break;
+
+   }
+
+ 
+
+   return;
+
+}
