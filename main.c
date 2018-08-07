@@ -9,10 +9,10 @@ int nitem = 0;
 void SetColor(int color, int bgcolor); // 글자 색과 배경 색을 변경한다. 
 void gotoxy(int x, int y); // 커서의 위치를 이동시킨다.
 void CursorView(char show); //커서숨기기 
-void display(int x, int y, char *text, int foreColor, int bgColor)
+void display(int x, int y, char *text, int foreColor, int bgColor);
 
 typedef struct ITEM{  //품목을 나타내는 구조체 ITEM 정의 (살 품목)
-       char name*;
+       char* name;
        int price;
        int num;
 } Item;
@@ -26,11 +26,8 @@ typedef struct { // 가계부 전용 구조체
 }Book;
 
 int main(){
-             int i;
-                for(i=0; i<5; i++) {
-                rec[i] = (struct Item *)malloc(sizeof(Item) * 8);
-        } 
-                  
+             int i,n,num=8;
+    
          CursorView(0);
          FILE * read1 = fopen("input.txt", "r"); // 파일과의 스트림 헤제         
         n = 0;
@@ -42,12 +39,7 @@ int main(){
         while(n > num){ // 일정 개수가 할당된 크기보다 큰 경우 
         
                 num *= 2; // 일정 저장 개수 2배로 곱하기 
-                arr = (Plan *)realloc(arr,sizeof(Plan ) * num); // 크기 재할당하기 
-                group0 = (Plan *)realloc(group0,sizeof(Plan ) * num); // 크기 재할당하기 
-                group1 = (Plan *)realloc(group1,sizeof(Plan ) * num); // 크기 재할당하기 
-                group2 = (Plan *)realloc(group2,sizeof(Plan ) * num); // 크기 재할당하기 
-                group3 = (Plan *)realloc(group3,sizeof(Plan ) * num); // 크기 재할당하기 
-                group4 = (Plan *)realloc(group4,sizeof(Plan ) * num); // 크기 재할당하기 
+                //크기  할당 부탁 
         }
          
         fclose(read1); // read1 헤제 (파일 읽는 위치 초기화를 위해)        
@@ -80,7 +72,7 @@ void CursorView(char show) //커서숨기기
         SetConsoleCursorInfo(hConsole, &ConsoleCursor);
 }
 void display(int x, int y, char *text, int foreColor, int bgColor) {
-        GotoXY(x, y);
+        gotoxy(x, y);
         SetColor(foreColor, bgColor);
         printf("%s", text);
 }
