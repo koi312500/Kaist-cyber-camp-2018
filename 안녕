@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
+#include <Windows.h>
+#include <string.h>
+
+int nItem = 0;
+
+typedef struct ITEM{  //품목을 나타내는 구조체 ITEM 정의 (살 품목)
+       char* name;
+       int price;
+       int num;
+};
+
+void main(){
+	int num, i, j, a,b,c,d,budget,count;
+	char str[100];
+	struct ITEM *item[5];
+	for(i=0; i<5; i++) {
+		item[i] = (struct ITEM *)malloc(sizeof(struct ITEM) * 8);
+	}
+
+	FILE *fp;
+	fp = fopen("item.txt","r");
+	
+	if(fp == NULL)
+		printf("파일을 찾을 수 없습니다.\n");
+		
+		while (getc(fp) != EOF) {  
+		fgets(str, 100, fp);
+		nItem++;
+	}
+	
+	rewind(fp);
+	
+		for(count=0; count<nItem; count++) {
+		fgets(str, 100, fp);
+			if(count=0){
+			fscanf(fp,"%d",&budget);
+			printf("%d\n",budget);
+			}
+			if(count % 2==1){
+			fscanf(fp, "%s", item[i][j].name);
+			printf("%s", item[i][j].name);
+			}
+			if(count % 2==0){
+			fscanf(fp, "%d %d", item[i][j].num, item[i][j].price);
+			printf("%d %d", item[i][j].num, item[i][j].price);
+			}
+	} 	
+	fclose(fp);
+}
