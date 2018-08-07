@@ -29,38 +29,6 @@ int main(){
              int i,n,num=8;
     
          CursorView(0);
-         	int j, k;
-		char str[300];
-		struct ITEM *thing[5]; 
-
-	FILE *fp;
-	fp = fopen("item.txt","r");
-	
-	if(fp == NULL)
-		printf("파일을 찾을 수 없습니다.\n");
-		
-	int count[5];
-	
-	for(i=0; i<5; i++)
-		count[i] = 0;
-
-//줄 수를 인식해서 nitem에 저장한다 
-	while (getc(fp) != EOF) {// 파일 끝인지 확인한다  
-		fgets(str, 300, fp);
-		nitem++;
-	}
-	
-	rewind(fp); // 파일 포인터를 처음으로 되돌린다  
-	
-	// 입력 파일로 부터 일정 데이터를 입력 받는다 
-	for(k=0; k<nitem; k++) {
-		fgets(str, 300, fp);
-		j = count[i];
-		
-		sscanf(str, "%6s %6d", thing[i][j].price, thing[i][j].num);
-		count[i]++;
-		
-	} 
          FILE * read1 = fopen("input.txt", "r"); // 파일과의 스트림 헤제         
         n = 0;
         char buf[1000]; // 일정의 개수를 파악하기 위한 버퍼
