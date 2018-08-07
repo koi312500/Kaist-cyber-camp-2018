@@ -1,0 +1,44 @@
+int key;
+	int mode = 0;
+	display(50, 2, "장보기 프로그램", BLACK, WHITE);
+	display(0, 3, "------------------------------------------------------------------------------------------------------------------------", WHITE, BLACK);
+	display(0, 4, "MAIN MENU     ", WHITE, BLACK);
+	display(0, 5, " 가계부", BLACK, WHITE);
+	display(0, 6, " 구매 리스트", WHITE, BLACK);
+	while (1) {
+		key = getch();
+		if (key == 224) {
+			key = getch();
+			if (key == 72)
+				mode++;
+			if (key == 80)
+				mode--;
+		}
+		if (key == ' ') {
+			if (mode % 2 == 0) {
+				display(0, 4, " 가계부          ", WHITE, BLACK);
+				display(0, 5, "                 ", WHITE, BLACK);
+				display(0, 6, "                 ", WHITE, BLACK);
+				while (1) {
+					///////////
+				}
+			}
+			if (abs(mode) % 2 == 1) {
+				display(0, 4, " 구매 리스트     ", WHITE, BLACK);
+				display(0, 5, "                 ", WHITE, BLACK);
+				display(0, 6, "                 ", WHITE, BLACK);
+				while (1) {
+					///////////
+				}
+			}
+		}
+		if (mode % 2 == 0) {
+			display(0, 5, " 가계부", BLACK, WHITE);
+			display(0, 6, " 구매 리스트", WHITE, BLACK);
+		}
+		if (abs(mode) % 2 == 1) {
+			display(0, 5, " 가계부", WHITE, BLACK);
+			display(0, 6, " 구매 리스트", BLACK, WHITE);
+		}
+		
+	}
