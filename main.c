@@ -100,6 +100,7 @@ int main() {
 	display(0, 6, " 구매 리스트", WHITE, BLACK);
 	fullbud = budget;
 	while (1) {
+		//////////////////////////////////////////////////////////////////
 		if (fix == 1) {
 			for (int i = 0; i < nitem; i++) {
 				fullbud = fullbud - item[i].price;
