@@ -74,7 +74,7 @@ void display(int x, int y, char *text, int foreColor, int bgColor);
 			return 0;
 		}
 		
-		while (getc(fp) != EOF) {  
+		while (!feof()) {  
 			fgets(str, 100, fp);
 			nitem++;
 		}
