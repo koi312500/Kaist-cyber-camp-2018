@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <Windows.h>
 #include <string.h>
-int nitem = 0;
+int nitem,num = 8,budget,count;
 
 void SetColor(int color, int bgcolor); // 글자 색과 배경 색을 변경한다. 
 void gotoxy(int x, int y); // 커서의 위치를 이동시킨다.
@@ -26,23 +26,72 @@ typedef struct { // 가계부 전용 구조체
 }Book;
 
 int main(){
-             int i,n,num=8;
+	
+	 	Item * item = (Item *) malloc(sizeof(Item) * num); // 일정 저장 구조체 선언 
+		Book * book = (Book *) malloc(sizeof(Book) * num);
+ 	 	
+        int i,n,num=8;
+        char * str;
     
          CursorView(0);
-         FILE * read1 = fopen("input.txt", "r"); // 파일과의 스트림 헤제         
-        n = 0;
-        char buf[1000]; // 일정의 개수를 파악하기 위한 버퍼
-        while(fgets(buf, 1000, read1) != NULL) {
-                n++;
-        }
-        
-        while(n > num){ // 일정 개수가 할당된 크기보다 큰 경우 
-        
-                num *= 2; // 일정 저장 개수 2배로 곱하기 
-                //크기  할당 부탁 
-        }
-         
-        fclose(read1); // read1 헤제 (파일 읽는 위치 초기화를 위해)        
+        FILE *fp;
+		fp = fopen("item1.txt","r");
+	
+		if(fp == NULL){
+			printf("item1.txt - 파일을 찾을 수 없습니다.\n");
+			printf("파일 추가후 다시 시작하세요.\n");
+			Sleep(3000);
+			return 0;
+		}
+		
+		while (getc(fp) != EOF) {  
+		fgets(str, 100, fp);
+		nitem++;
+	}
+	nitem--;
+	
+	while(n > num){ // 일정 개수가 할당된 크기보다 큰 경우 
+	
+		num *= 2; // 일정 저장 개수 2배로 곱하기 
+		Item * item = (Item *) realloc(item,sizeof(Item) * num); // 일정 저장 구조체 선언 
+		Book * book = (Book *) realloc(book,sizeof(Book) * num); 
+	}
+	rewind(fp);
+
+		fscanf(fp,"%d",&budget);
+		
+		for(count=0; count<nitem; count++) {
+			fgets(item[count].name,100,fp);
+			fscanf(fp,"%d %d",&item[count].price,&item[count].price);
+   		} 
+   		
+   		fclose(fp);
+   		fp = fopen("item2.txt","r");
+	
+	
+		if(fp == NULL){
+			printf("item2.txt - 파일을 찾을 수 없습니다.\n");
+			printf("파일 추가후 다시 시작하세요.\n");
+			Sleep(3000);
+			return 0;
+		}
+		
+		while (getc(fp) != EOF) {  
+			fgets(str, 100, fp);
+			nitem++;
+		}
+		while(n > num){ // 일정 개수가 할당된 크기보다 큰 경우 
+	
+		num *= 2; // 일정 저장 개수 2배로 곱하기 
+		Item * item = (Item *) realloc(item,sizeof(Item) * num); // 일정 저장 구조체 선언 
+		Book * book = (Book *) realloc(book,sizeof(Book) * num); 
+	}
+	rewind(fp);
+
+		
+		for(count=0; count<nitem; count++) {
+			fscanf(fp,"%s %d %d %d",&book[count].date,&book[count].n,&book[count].money,&book[count].title,&book[count].content);
+   		} 
     return 0;
 }
 
