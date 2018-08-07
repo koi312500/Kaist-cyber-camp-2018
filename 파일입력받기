@@ -1,0 +1,27 @@
+	int num, i, j, k;
+	char str[300];
+	struct RECORD *thing[5]; 
+
+	FILE *fp;
+	fp = fopen("data.txt","r");
+	
+	if(fp == NULL)
+		printf("파일을 찾을 수 없습니다.\n");
+
+//줄 수를 인식해서 nitem에 저장한다  
+	while (getc(fp) != EOF) {// 파일 끝인지 확인한다  
+		fgets(str, 300, fp);
+		nitem++;
+	}
+	
+	rewind(fp); // 파일 포인터를 처음으로 되돌린다  
+	
+	// 입력 파일로 부터 일정 데이터를 입력 받는다 
+	for(k=0; k<nRecord; k++) {
+		fgets(str, 300, fp);
+		j = count[i];
+		
+		sscanf(str, "%6s %6d", thing[i][j].year, thing[i][j].month);
+		count[i]++;
+		
+	} 
