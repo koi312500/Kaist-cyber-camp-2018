@@ -6,7 +6,7 @@
 #include <string.h>
 #define BLACK 0
 #define WHITE 7
-int nitem = 0, num = 8, budget = 0, count = 0;
+int nitem = 0, num = 8, budget = 0, count = 0, fullbud = 0;
 void SetColor(int color, int bgcolor); // 글자 색과 배경 색을 변경한다. 
 void gotoxy(int x, int y); // 커서의 위치를 이동시킨다.
 void CursorView(char show); //커서숨기기 
@@ -28,7 +28,7 @@ int main() {
 
 	Item * item = (Item *)malloc(sizeof(Item) * num); // 일정 저장 구조체 선언 
 	Book * book = (Book *)malloc(sizeof(Book) * num);
-
+	int fix = 1;
 	int i;
 	char str[32];
 	CursorView(0);
@@ -98,7 +98,14 @@ int main() {
 	display(0, 4, "MAIN MENU     ", WHITE, BLACK);
 	display(0, 5, " 가계부", BLACK, WHITE);
 	display(0, 6, " 구매 리스트", WHITE, BLACK);
+	fullbud = budget;
 	while (1) {
+		if (fix == 1) {
+			for (int i = 0; i < nitem; i++) {
+				fullbud = fullbud - item[i].price;
+			}
+			fix = 0;
+		}
 		key = getch();
 		if (key == 224) {
 			key = getch();
@@ -111,7 +118,7 @@ int main() {
 			if (mode % 2 == 0) {
 				display(0, 4, " 가계부          ", WHITE, BLACK);
 				display(0, 5, "                 ", WHITE, BLACK);
-				printf("잔여 금액은 %d원입니다.", budget);
+				printf("잔여 금액은 %d원입니다.", fullbud);
 				display(0, 6, "                 ", WHITE, BLACK);
 				for (int z = 0; z < nitem; z++) {
 					display(0, z + 6, item[z].name, WHITE, BLACK);
@@ -187,4 +194,3 @@ void displayInt(int x, int y, int num, int foreColor, int bgColor) {
 	SetColor(foreColor, bgColor);
 	printf("%d", num);
 }
-
