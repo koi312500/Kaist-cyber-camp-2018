@@ -73,7 +73,7 @@ int main(){
    		fclose(fp);
    		fp = fopen("item2.txt","r");
 	//////////////////////////
-	
+	int nitem2;
 		if(fp == NULL){
 			printf("item2.txt - 파일을 찾을 수 없습니다.\n");
 			printf("파일 추가후 다시 시작하세요.\n");
@@ -83,9 +83,9 @@ int main(){
 		
 		while (getc(fp) != EOF) {  
 			fgets(str, 100, fp);
-			nitem++;
+			nitem2++;
 		}
-		while(nitem > num){ // 일정 개수가 할당된 크기보다 큰 경우 
+		while(nitem2 > num){ // 일정 개수가 할당된 크기보다 큰 경우 
 	
 		num *= 2; // 일정 저장 개수 2배로 곱하기 
 		item = (Item *) realloc(item,sizeof(Item) * num); // 일정 저장 구조체 선언 
@@ -93,7 +93,7 @@ int main(){
 	}
 	rewind(fp);
 		
-		for(count=0; count<nitem; count++) {
+		for(count=0; count<nitem2; count++) {
 			fscanf(fp,"%s %d %d %d",&book[count].date,&book[count].n,&book[count].money,&book[count].title,&book[count].content);
    		} 
     int key;
@@ -117,9 +117,12 @@ int main(){
 				display(0, 4, " 가계부          ", WHITE, BLACK);
 				display(0, 5, "                 ", WHITE, BLACK);
 				display(0, 6, "                 ", WHITE, BLACK);
-				while (1) {
-					///////////
+			/*	for(int z = 0;z>n) {
+					display(0,z,item[].name)
 				}
+				while (1) {
+					
+				}*/
 			}
 			if (abs(mode) % 2 == 1) {
 				display(0, 4, " 구매 리스트     ", WHITE, BLACK);
