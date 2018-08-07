@@ -1,10 +1,12 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
 #include <Windows.h>
+#include <string.h>
 #define BLACK 0
 #define WHITE 7
-int nitem = 0, num = 8, budget = 0, count = 0;
+int nitem = 0, num = 8, budget = 0, count = 0,nitem2 = 0;
 
 void SetColor(int color, int bgcolor); // 글자 색과 배경 색을 변경한다. 
 void gotoxy(int x, int y); // 커서의 위치를 이동시킨다.
@@ -30,8 +32,8 @@ int main() {
 	Item * item = (Item *)malloc(sizeof(Item) * num); // 일정 저장 구조체 선언 
 	Book * book = (Book *)malloc(sizeof(Book) * num);
 
-	int i, n, num = 8;
-	char * str;
+	int i;
+	char str[32];
 
 	CursorView(0);
 	FILE *fp;
@@ -49,27 +51,28 @@ int main() {
 		nitem++;
 	}
 	nitem--;
-	while (n > num) { // 일정 개수가 할당된 크기보다 큰 경우 
+	while (nitem > num) { // 일정 개수가 할당된 크기보다 큰 경우 
 
 		num *= 2; // 일정 저장 개수 2배로 곱하기 
-		Item * item = (Item *)realloc(item, sizeof(Item) * num); // 일정 저장 구조체 선언 
-		Book * book = (Book *)realloc(book, sizeof(Book) * num);
+		item = (Item *)realloc(item, sizeof(Item) * num); // 일정 저장 구조체 선언 
+		book = (Book *)realloc(book, sizeof(Book) * num);
 	}
 	rewind(fp);
 
+
 	fscanf(fp, "%d", &budget);
+	//////////////////
 	for (count = 0; count<nitem; count++) {
-		if (count % 2 == 1) {
+		if (count % 2 == 0) {
 			fgets(item[count].name, 100, fp);
 		}
-		else if (count % 2 == 0) {
+		else if (count % 2 == 1) {
 			fscanf(fp, "%d %d", item[count].num, item[count].price);
 		}
 	}
 	fclose(fp);
 	fp = fopen("item2.txt", "r");
-
-
+	//////////////////////////
 	if (fp == NULL) {
 		printf("item2.txt - 파일을 찾을 수 없습니다.\n");
 		printf("파일 추가후 다시 시작하세요.\n");
@@ -79,17 +82,17 @@ int main() {
 
 	while (getc(fp) != EOF) {
 		fgets(str, 100, fp);
-		nitem++;
+		nitem2++;
 	}
-	while (n > num) { // 일정 개수가 할당된 크기보다 큰 경우 
+	while (nitem2 > num) { // 일정 개수가 할당된 크기보다 큰 경우 
 
 		num *= 2; // 일정 저장 개수 2배로 곱하기 
-		Item * item = (Item *)realloc(item, sizeof(Item) * num); // 일정 저장 구조체 선언 
-		Book * book = (Book *)realloc(book, sizeof(Book) * num);
+		item = (Item *)realloc(item, sizeof(Item) * num); // 일정 저장 구조체 선언 
+		book = (Book *)realloc(book, sizeof(Book) * num);
 	}
 	rewind(fp);
 
-	for (count = 0; count<nitem; count++) {
+	for (count = 0; count<nitem2; count++) {
 		fscanf(fp, "%s %d %d %d", &book[count].date, &book[count].n, &book[count].money, &book[count].title, &book[count].content);
 	}
 	int key;
@@ -113,9 +116,12 @@ int main() {
 				display(0, 4, " 가계부          ", WHITE, BLACK);
 				display(0, 5, "                 ", WHITE, BLACK);
 				display(0, 6, "                 ", WHITE, BLACK);
-				while (1) {
-					///////////
+				/*	for(int z = 0;z>n) {
+				display(0,z,item[].name)
 				}
+				while (1) {
+
+				}*/
 			}
 			if (abs(mode) % 2 == 1) {
 				display(0, 4, " 구매 리스트     ", WHITE, BLACK);
