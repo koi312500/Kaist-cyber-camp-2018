@@ -1,25 +1,9 @@
-{
-
-   char str;
-
- 
-
-   while (1)
-
-   {
-
-      printf("문자을 입력하세요.");
-
-      scanf("%c", &str);
-
- 
-
-      if (str == '+') break;
-
-   }
-
- 
-
-   return;
-
-}
+char cheat[20];
+    while (1){
+		scanf("%s", &cheat);
+		if(cheat == "showmethemoney"){
+			printf("개발자 모드입니다.");
+			budget = 999999;
+			return 0;
+		}
+	}
