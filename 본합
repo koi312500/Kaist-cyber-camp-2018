@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <ctype.h>
-#include <Windows.h>
 #include <string.h>
 #define BLACK 0
 #define WHITE 7
@@ -61,22 +56,12 @@ int main(){
 
 		fscanf(fp,"%d",&budget);
 		for(count=0; count<nitem; count++) {
-			for(count=0; count<nItem; count++) {
-		fgets(str, 100, fp);
-			if(count=0){
-			fscanf(fp,"%d",&budget);
-			printf("%d\n",budget);
-			}
 			if(count % 2==1){
-			fscanf(fp, "%s", item[i][j].name);
-			printf("%s", item[i][j].name);
+				fgets(item[count].name, 100, fp);
 			}
-			if(count % 2==0){
-			fscanf(fp, "%d %d", item[i][j].num, item[i][j].price);
-			printf("%d %d", item[i][j].num, item[i][j].price);
+			else if(count % 2==0){
+				fscanf(fp, "%d %d", item[count].num, item[count].price);
 			}
-			fgets(item[count].name,100,fp);
-			fscanf(fp,"%d %d",&item[count].price,&item[count].price);
    		}
    		fclose(fp);
    		fp = fopen("item2.txt","r");
