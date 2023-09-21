@@ -1,8 +1,8 @@
 # Kaist-cyber-camp-2018
 Kaist-cyber-camp-2018-일정관리프로그램조  
-카이스트 온라인 교육 후 참가할 수 있는 캠프에서 있었던 프로젝트를 위해 만든 Repository입니다.  
-소스코드 공유를 위한 프로젝트입니다.
-프로젝트가 완료되였으므로, 프로젝트를 아카이브 합니다. 이에 대해 말하시고 싶으신 사항이 있으시면 Discord AKMU_LOVE#4211로 연락주세요.
+카이스트 사이버영재교육 캠프 협업을 위해 생성된 프로젝트입니다.
+
+문의사항이 있으시면, [Discord @koi3125](https://discord-profile-starcea.paring.moe/discord/753625063357546556)로 연락주세요.
 
 [1절]
 
