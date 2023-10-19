@@ -4,6 +4,9 @@ Kaist-cyber-camp-2018-일정관리프로그램조
 
 문의사항이 있으시면, [Discord @koi3125](https://discord-profile-starcea.paring.moe/discord/753625063357546556)로 연락주세요.
 
+<details>
+<summary>기존 README.md</summary>
+
 [1절]
 
 산다는 게 다 그런 거지
@@ -52,3 +55,5 @@ Kaist-cyber-camp-2018-일정관리프로그램조
 탈모르파티
 
 민머리 대머리 맨들맨들 빡빡이(x3)
+
+</details>
